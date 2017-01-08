@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small"; //changed querySelector to getElementById
         break;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         break;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         break;
       default:
         console.log("bug in changeSliderLabel");
@@ -443,7 +443,7 @@ var resizePizzas = function(size) {
           break;
         }
         
-    var pizzas = document.querySelectorAll(".randomPizzaContainer");
+    var pizzas = document.getElementsByClassName("randomPizzaContainer"); // changed querySelectorAll
         
         for (var i = 0; i < pizzas.length; i++) {
           pizzas[i].style.width = newWidth + "%";
@@ -464,9 +464,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-
+var pizzasDiv = document.getElementById("randomPizzas");// Took pizzas div outside of for loop
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -503,7 +502,7 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((body / 1250) + (i % 5));
     
-    items[i].style.transform = 'translateX(' + 500 * phase + 'px)';
+    items[i].style.transform = 'translateX(' + 100 * phase + 'px)'; //Changed style.left to translateX
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -523,13 +522,13 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 20; i++) { //changed 200 loop limit to 20 for scroll fps
+  for (var i = 0; i < 24; i++) { //changed 200 loop limit to 24 for scroll fps
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px'; //replaced this line with current code for better pizza movement
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
