@@ -62,6 +62,7 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 -Changed sizes of images to increase page load speed
 -Placed google API inside script tag to increase page load speed
 -Inlined some css styles into html file
+-Minimized document with html miimizer
 
 ### views/js/main.js
 -Got rid of Determinedx function for pizza slider resize performance increase
