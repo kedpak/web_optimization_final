@@ -426,6 +426,7 @@ var resizePizzas = function(size) {
   
 
   // Iterates through pizza elements on the page and changes their widths
+  // Changed changePizzaSizes function by including switch statement and removing dxdetermine
   function changePizzaSizes(size) {
     switch(size) {
         case "1":
@@ -463,6 +464,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+
 for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -492,6 +494,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
@@ -519,7 +522,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 20; i++) { //changed 200 loop limit to 20 for scroll fps
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
