@@ -60,16 +60,19 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 ### index.html
 -Placed CSS link tag to bottom of the page to prevent render blocking
 -Changed sizes of images to increase page load speed
--Placed google API inside script tag to increase page load speed
--Inlined some css styles into html file
+-Changed google API to load throuhg javascript to increase page load speed
+-Inlined critical css styles into html file
 -Minimized document with html miimizer
+
 
 ### views/js/main.js
 -Got rid of Determinedx function for pizza slider resize performance increase
 -Modified changePizzaSizes function to include switch statement, and simplified for loop to get rid of forced synchronous layout
 -Modified updatePositions function by placing scroll event in a variable for increased page performance
--On line 525 reduced the loop limit from 200 to 20 to decrease amount of pizzas generated on screen
+-On line 525 reduced the loop limit from 200 to 24 to decrease amount of pizzas generated on screen
 -Modified updatePositions function to utilize translateX for improved performance 
+-Replaced line 531 with to accomodate for translateX change
+-On line 446 and inside changeSliderLabel function removed querySelector methods and replaced with javascriot api's(getElementById/getElementByClassName
 
 ### pizza.html
 -Placed CSS at the bottom of page and implemented scripts to prevent render blocking
