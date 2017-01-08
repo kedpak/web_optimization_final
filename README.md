@@ -68,6 +68,7 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 -Modified changePizzaSizes function to include switch statement, and simplified for loop to get rid of forced synchronous layout
 -Modified updatePositions function by placing scroll event in a variable for increased page performance
 -On line 525 reduced the loop limit from 200 to 20 to decrease amount of pizzas generated on screen
+-Modified updatePositions function to utilize translateX for improved performance 
 
 ### pizza.html
 -Placed CSS at the bottom of page and implemented scripts to prevent render blocking
